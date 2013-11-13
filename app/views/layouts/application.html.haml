@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %title SayXinMandarin
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+
+- if user_signed_in?
+  :javascript
+    (function() {
+      var App = this.App;
+      App.currentUser = new App.User(#{current_user.to_json});
+    }).call(this);

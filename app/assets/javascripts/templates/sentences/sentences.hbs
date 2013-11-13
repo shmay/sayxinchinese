@@ -1,0 +1,19 @@
+<h3>Sentences</h3>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>sen</th>
+      <th>asked</th>
+      <th>answers</th>
+    </tr>
+  </thead>
+  {{#each model}}
+    <tr>
+      <td>{{id}}</td>
+      <td>{{#link-to 'sentence' id}}{{sentence}}{{/link-to}}</td>
+      <td>{{#link-to 'user' user}}{{user.name}}{{/link-to}}</td>
+      <td>{{answers_count}}
+    </tr>
+  {{/each}}
+</table>

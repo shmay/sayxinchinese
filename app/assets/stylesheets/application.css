@@ -1,0 +1,81 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require font-awesome
+ *= require bootstrap
+ *= require bootstrap-overrides
+ *= require profile
+ *= require answers
+ */
+
+body {
+  padding-top: 50px;
+}
+
+.actions {
+  margin-top:10px;
+}
+
+.nodisplay {
+  display: none;
+}
+
+@media (min-width: 768px) and (max-width:1200px) {
+  body#is_signed_out {
+    padding-top: 100px;
+  }
+}
+
+.pointer {
+  cursor:pointer;
+}
+
+.success {
+  font-weight:bold;
+  color: #5cb85c;
+}
+
+.voted {
+  color: orange;
+}
+
+.stuff {
+  min-height: 60px;
+}
+
+.circle {
+  margin-left:18px;
+  padding-top:6px;
+  font-weight:bold;
+  text-align:center;
+  color: white;
+  width: 30px;
+  height: 30px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background: #4679BD;
+}
+
+div.arrow, div.star {
+  font-size:25px;
+  margin-left:21px;
+}
+
+//.circle {
+//  width: 50%;
+//  height:0;
+//  padding-bottom: 50%;
+//  -moz-border-radius: 50%; 
+//  -webkit-border-radius: 50%; 
+//  border-radius: 50%;
+//  background: #4679BD; 
+//}

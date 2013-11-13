@@ -1,0 +1,4 @@
+.nav-tabs > li {
+  // originally -1px... for some reason changing to -2px hide the bottom border of the active tab
+  margin-bottom: -2px;
+}
