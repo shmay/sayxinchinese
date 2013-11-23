@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require handlebars
+//= require showdown
+//= require bootstrap
 //= require ember
 //= require ember-data
 //= require_self

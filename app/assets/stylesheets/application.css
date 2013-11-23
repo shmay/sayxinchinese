@@ -13,11 +13,17 @@
  *= require bootstrap
  *= require bootstrap-overrides
  *= require profile
+ *= require composer
  *= require answers
+ *= require sentences
  */
 
 body {
   padding-top: 50px;
+}
+
+.tip {
+  cursor:pointer;
 }
 
 .actions {
@@ -32,6 +38,11 @@ body {
   body#is_signed_out {
     padding-top: 100px;
   }
+}
+
+.preview {
+  border: 1px dotted black;
+  padding: 10px;
 }
 
 .pointer {

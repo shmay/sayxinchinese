@@ -4,12 +4,13 @@ class SentencesController < ApplicationController
   # GET /sentences
   # GET /sentences.json
   def index
-    @sentences = Sentence.all
+    @sentences = Sentence.all_with_data
   end
 
   # GET /sentences/1
   # GET /sentences/1.json
   def show
+    @user = current_user
   end
 
   # GET /sentences/new
@@ -25,11 +26,15 @@ class SentencesController < ApplicationController
   # POST /sentences.json
   def create
     @sentence = Sentence.new(sentence_params)
+    @sentence.language_id = 1
+    @sentence.convert_id = 2
+    @user = current_user
+    @sentence.user = @user
 
     respond_to do |format|
       if @sentence.save
         format.html { redirect_to @sentence, notice: 'Sentence was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @sentence }
+        format.json { render action: 'show'}
       else
         format.html { render action: 'new' }
         format.json { render json: @sentence.errors, status: :unprocessable_entity }
@@ -69,6 +74,6 @@ class SentencesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sentence_params
-      params[:sentence]
+      params.require(:sentence).permit(:sentence, :explanation)
     end
 end

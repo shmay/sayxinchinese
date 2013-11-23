@@ -2,5 +2,6 @@
 
 FactoryGirl.define do
   factory :answer do
+    answer 'some answer'
   end
 end

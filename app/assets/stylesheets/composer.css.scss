@@ -1,0 +1,48 @@
+#reply-control {
+  width: 100%;
+  z-index: 1039;
+  height: 400px;
+  background-color: rgba(220, 223, 224, 0.96);
+  bottom: 0px;
+  border: 1px solid black;
+  font-size: 14px;
+  position: fixed;
+
+  textarea {
+    height:100%;
+    width:100%;
+  }
+
+  .composer-mobile {
+    margin-left:10px;
+  }
+
+  .composer-side {
+    float: left;
+    width:48%;
+    height:100%;
+    margin-left:10px;
+  }
+
+  #preview-spot {
+    background-color: white;
+    height:100%;
+  }
+
+  #composer-body {
+    height:100%;
+  }
+}
+
+.grippie {
+  width: 100%;
+  border: 1px solid #dddddd;
+  border-width: 1px 0px;
+  font-size: 20px;
+  background-color: #eeeeee;
+  text-align:center;
+  padding: 1px 10px;
+  cursor: row-resize;
+  height: 30px;
+  overflow: hidden;
+}

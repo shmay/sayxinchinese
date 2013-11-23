@@ -1,0 +1,11 @@
+.preview {
+  border: 1px dotted black;
+  padding: 5px;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  background-color: rgba(220, 223, 224, 0.96);
+  border: 1px solid #000000;
+}

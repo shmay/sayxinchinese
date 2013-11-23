@@ -8,7 +8,11 @@ class Answer < ActiveRecord::Base
   has_many :user_starrings, through: :starrings, source: :user
 
   def self.with_vote_data(sentence_id,current_user)
-    selects = ['answers.*', 'sum(votes.direction) as votes_count']
+    selects = [
+      'answers.*',
+      'sum(votes.direction) as votes_count',
+      'bool(count(starrings.user_id) > 0) AS starred'
+    ]
     if current_user
       selects << "sum(case when votes.user_id = #{current_user.id} then votes.direction else 0 end) AS user_votes"
     end
@@ -16,6 +20,7 @@ class Answer < ActiveRecord::Base
     select(selects).
     joins(%{
       LEFT JOIN "votes" ON "votes"."answer_id" = "answers"."id"
+      LEFT JOIN "starrings" ON "starrings"."answer_id" = "answers"."id" AND "starrings"."user_id" = #{current_user.id}
     }).
     group("answers.id")
   end

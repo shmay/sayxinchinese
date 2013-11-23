@@ -10,11 +10,12 @@ App.Router.map (match) ->
     @resource('users')
 
 App.SentenceRoute = Ember.Route.extend
-  model: (params) -> $.getJSON("/profiles/" + params.id)
+  model: (params) -> $.getJSON("/sentences/" + params.id)
 
 App.SentencesRoute = Ember.Route.extend
   model: -> App.Sentence.find()
-  model: -> App.Sentence.find()
+  setupController: (controller, model) ->
+    controller.set('content', model)
 
 App.UserRoute = Ember.Route.extend
   model: (params) -> $.getJSON("/profiles/" + params.id)

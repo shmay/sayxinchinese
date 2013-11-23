@@ -1,4 +1,31 @@
 <h3>Sentences</h3>
+{{#if canCreateTopic}}
+  <button class='btn btn-default' {{action createTopic}}>Create Sentence</button>
+{{/if}}
+
+<br/>
+Sort by:
+
+{{#if isSortedbyDate}}
+  date |
+  <a href='#' {{action changeSortTo 'sentence'}}>sentence</a>
+{{else}}
+  <a href='#' {{action changeSortTo 'date'}}>date</a>
+  | sentence
+{{/if}}
+
+<br/>
+
+Order:
+
+{{#if sortAscending}}
+  ascending |
+  <a href='#' {{action toggleOrder}}>descending</a>
+{{else}}
+  <a href='#' {{action toggleOrder}}>ascending</a>
+  | descending
+{{/if}}
+
 <table class='table'>
   <thead>
     <tr>
@@ -8,7 +35,7 @@
       <th>answers</th>
     </tr>
   </thead>
-  {{#each model}}
+  {{#each controller}}
     <tr>
       <td>{{id}}</td>
       <td>{{#link-to 'sentence' id}}{{sentence}}{{/link-to}}</td>

@@ -1,5 +1,32 @@
 require 'spec_helper'
 
 describe Answer do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:user) { FactoryGirl.create(:user) }
+
+  describe "answer load with data" do
+    it "loads answers" do
+      sentence = FactoryGirl.create(:sentence)
+      FactoryGirl.create_list(:answer, 1, user_id: 1, sentence_id: sentence.id)
+
+      answers = Answer.with_vote_data(sentence.id, user)
+      answers.length.should eq(1)
+    end
+
+    it "calculate correctly" do
+      sentence = FactoryGirl.create(:sentence)
+      answer = FactoryGirl.create(:answer, sentence_id:sentence.id, user_id:user.id)
+
+      FactoryGirl.create_list(:answer, 1, user_id: 1, sentence_id: sentence.id)
+      FactoryGirl.create(:starring, user_id: user.id, answer_id: answer.id)
+
+      answers = Answer.with_vote_data(sentence.id, user)
+      yup = answers.find {|a| a.id == answer.id}
+      yup.starred.should be_true
+
+      nope = answers.find {|a| a.id != answer.id}
+      nope.starred.should be_false
+
+      # user.answers.count.should eq(1)
+    end
+  end
 end
