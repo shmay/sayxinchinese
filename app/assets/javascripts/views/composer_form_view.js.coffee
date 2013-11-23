@@ -1,2 +1,2 @@
-App.ComposerFormView = Em.View.extend
-  template: 'composer_form'
+App.ComposerFormView = Ember.View.extend
+  templateName: 'composer_form'

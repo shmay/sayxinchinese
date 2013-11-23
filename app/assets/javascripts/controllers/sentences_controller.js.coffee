@@ -13,15 +13,10 @@ App.SentencesController = Ember.ArrayController.extend
     createTopic: ->
       controller = @get("controllers.composer")
 
-      controller.toggle(App.NewSentenceView.create(
-        controller: App.SentenceController.create(
-          model: App.Sentence.createRecord()
-        )
+      controller.toggle(App.ComposerFormView.create(
+        controller: App.ComposerFormController.create(type:'Sentence')
       ))
 
-    changeSortTo: (sort) ->
-      console.log sort
-      @set('sortProperties', [sort])
+    changeSortTo: (sort) -> @set('sortProperties', [sort])
 
-    toggleOrder: ->
-      @set('sortAscending', !@get('sortAscending'))
+    toggleOrder: -> @set('sortAscending', !@get('sortAscending'))

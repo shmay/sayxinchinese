@@ -18,8 +18,11 @@ Handlebars.helper 'dynamicView', (options) ->
   Handlebars.helpers.view.call(this, path, options)
 
 Handlebars.registerBoundHelper "markdown", (input) ->
-  console.log input
   new Handlebars.SafeString(showdown.makeHtml(input))
+
+Ember.Handlebars.helper 'dynView', (name, options) ->
+  console.log name
+  Handlebars.helpers.view.call(this, name, options)
 
 $ ->
   $(document).on 'mouseenter', '.tip', -> $(this).tooltip().tooltip('show')

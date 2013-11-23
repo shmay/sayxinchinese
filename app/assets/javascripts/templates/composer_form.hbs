@@ -1,0 +1,42 @@
+{{#if isMobile}}
+  <div class='row'>
+    <div classs='col-md-12'>
+      <ul class="nav nav-pills">
+        <li {{bindAttr class="preview::active"}}>
+          <a href="#home" data-toggle="tab" {{action showForm}}>Create a new sentence</a>
+        </li>
+        <li {{bindAttr class="preview:active"}}>
+          <a href="#home" data-toggle="tab" {{action showPreview}}>Preview</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+{{else}}
+  <h3>Create a new sentence</h3>
+{{/if}}
+
+<div id='composer-body' class='row'>
+
+  <div {{bindAttr class="isPreviewAndMobile:hide:shown"}}>
+    <div id='compose-write' {{bindAttr class="isMobile:composer-mobile:col-md-7"}}>
+      <form role="form">
+        {{dynView formView}}
+        <button class="btn btn-default" {{bindAttr disabled="isSubmitting:disabled"}} {{action submit}}>
+          {{#if isSubmitting}}
+            Submitting...
+          {{else}}
+            Submit
+          {{/if}}
+        </button>
+        <button class="btn btn-default" {{bindAttr disabled="isSubmitting:disabled"}} {{action reset}}>Reset</button>
+        <button class="btn btn-default" {{bindAttr disabled="isSubmitting:disabled"}} {{action close}}>Close</button>
+      </form>
+    </div>
+  </div>
+
+  <div {{bindAttr class="notMobileOrPreview:prev:hide"}}>
+    <div id='compose-preview' {{bindAttr class='isMobile:col-md-12:col-md-5'}}>
+      {{dynView mdView}}
+    </div>
+  </div>
+</div>
