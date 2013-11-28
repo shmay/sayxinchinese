@@ -1,3 +1,4 @@
+{{{title}}}
 {{#if isMobile}}
   <div class='row'>
     <div classs='col-md-12'>
@@ -21,15 +22,15 @@
     <div id='compose-write' {{bindAttr class="isMobile:composer-mobile:col-md-7"}}>
       <form role="form">
         {{dynView formView}}
-        <button class="btn btn-default" {{bindAttr disabled="isSubmitting:disabled"}} {{action submit}}>
+        <button class="btn btn-default" {{bindAttr disabled="isSubmitting"}} {{action submit}}>
           {{#if isSubmitting}}
             Submitting...
           {{else}}
             Submit
           {{/if}}
         </button>
-        <button class="btn btn-default" {{bindAttr disabled="isSubmitting:disabled"}} {{action reset}}>Reset</button>
-        <button class="btn btn-default" {{bindAttr disabled="isSubmitting:disabled"}} {{action close}}>Close</button>
+        <button class="btn btn-default" {{bindAttr disabled="isSubmitting"}} {{action reset}}>Reset</button>
+        <button class="btn btn-default" {{bindAttr disabled="isSubmitting"}} {{action close}}>Close</button>
       </form>
     </div>
   </div>

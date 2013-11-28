@@ -11,6 +11,7 @@ class SentencesController < ApplicationController
   # GET /sentences/1.json
   def show
     @user = current_user
+    @answers = @sentence.answers
   end
 
   # GET /sentences/new

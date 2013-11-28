@@ -1,1 +1,16 @@
-{{sentence}}
+<div id="sentence_show">
+  <h2>{{sentence}}</h2>
+  <p>
+    English
+    <i class="fa fa-long-arrow-right"></i>
+    Mandarin
+    <button class="btn btn-primary" id="add_answer_button" {{action addAnswer}}>Add Answer</button>
+  </p>
+  <div class="nodisplay" id="add_answer_box"></div>
+
+  {{answersLength}}
+
+  {{#each answers}}
+    {{{answer}}}
+  {{/each}}
+</div>

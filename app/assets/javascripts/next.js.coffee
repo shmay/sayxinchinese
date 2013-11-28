@@ -18,10 +18,12 @@ Handlebars.helper 'dynamicView', (options) ->
   Handlebars.helpers.view.call(this, path, options)
 
 Handlebars.registerBoundHelper "markdown", (input) ->
-  new Handlebars.SafeString(showdown.makeHtml(input))
+  if input
+    new Handlebars.SafeString(showdown.makeHtml(input))
+  else
+    ""
 
 Ember.Handlebars.helper 'dynView', (name, options) ->
-  console.log name
   Handlebars.helpers.view.call(this, name, options)
 
 $ ->
