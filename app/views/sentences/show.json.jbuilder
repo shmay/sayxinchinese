@@ -5,7 +5,6 @@ json.sentence do
     json.id @user.id
     json.name @user.name
   end
-
-  json.partial! 'answers/index'
 end
 
+json.partial! 'answers/index'

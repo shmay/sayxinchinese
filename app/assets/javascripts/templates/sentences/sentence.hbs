@@ -11,9 +11,7 @@
 
     {{answersLength}}
 
-    {{#each answers}}
-      {{{answer}}}
-    {{/each}}
+    {{render 'sentenceAnswers' model.answers}}
   </div>
 {{else}}
   <h3>Loading sentence...</h3>
