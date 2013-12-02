@@ -1,27 +1,15 @@
 # for more details see: http://emberjs.com/guides/models/defining-models/
+attr = Ember.attr
+hasMany = Ember.hasMany
 
-App.Sentence = Ember.Object.extend()
+Sentence = @App.Sentence = Ember.Model.extend
+  id: attr()
+  sentence: attr()
+  explanation: attr()
+  answers: hasMany('App.Answer', {key: 'answers', embedded: true})
 
-App.Sentence.reopenClass
-  find: (id) ->
-    $.getJSON("/sentences/#{id}").then(
-      ((response) =>
-        sentence = App.Sentence.create(response.sentence)
-        answers = Em.A()
-        for ans in response.answers
-          sentences.pushObject(App.Answer.create(ans))
+Sentence.url = 'sentences'
+Sentence.rootKey = 'sentence'
 
-        sentence.set('answers',answers)
-
-        sentence
-      ),
-      ((errResp) =>
-        debugger
-      )
-    )
-  findAll: (subreddit) ->
-    $.getJSON('/sentences').then ( (response) ->
-      response.sentences.map (sentence) -> App.Sentence.create sentence
-    ), ( (errResp) =>
-      debugger
-    )
+Sentence.collectionKey = 'sentences'
+Sentence.adapter = Ember.RESTAdapter.create()

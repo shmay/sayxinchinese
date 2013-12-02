@@ -9,12 +9,9 @@ App.Router.map (match) ->
 
 App.SentenceRoute = Ember.Route.extend
   model: (params) -> App.Sentence.find(params.id)
-  setupController: (controller,model) ->
-    controller.set('model',model)
-    controller.setProperties(model)
 
 App.SentencesRoute = Ember.Route.extend
-  model: -> App.Sentence.findAll()
+  model: -> App.Sentence.find()
   setupController: (controller,model) ->
     controller.set('content',model)
 

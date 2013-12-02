@@ -1,16 +1,20 @@
-<div id="sentence_show">
-  <h2>{{sentence}}</h2>
-  <p>
-    English
-    <i class="fa fa-long-arrow-right"></i>
-    Mandarin
-    <button class="btn btn-primary" id="add_answer_button" {{action addAnswer}}>Add Answer</button>
-  </p>
-  <div class="nodisplay" id="add_answer_box"></div>
+{{#if model.isLoaded }}
+  <div id="sentence_show">
+    <h2>{{sentence}}</h2>
+    <p>
+      English
+      <i class="fa fa-long-arrow-right"></i>
+      Mandarin
+      <button class="btn btn-primary" id="add_answer_button" {{action addAnswer}}>Add Answer</button>
+    </p>
+    <div class="nodisplay" id="add_answer_box"></div>
 
-  {{answersLength}}
+    {{answersLength}}
 
-  {{#each answers}}
-    {{{answer}}}
-  {{/each}}
-</div>
+    {{#each answers}}
+      {{{answer}}}
+    {{/each}}
+  </div>
+{{else}}
+  <h3>Loading sentence...</h3>
+{{/if}}

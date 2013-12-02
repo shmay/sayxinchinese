@@ -1,5 +1,5 @@
 json.answers do
   json.array!(@answers) do |answer|
-    json.extract! sentence, :id, :answer
+    json.extract! answer, :id, :answer
   end
 end

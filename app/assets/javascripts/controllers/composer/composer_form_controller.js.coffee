@@ -4,8 +4,10 @@ App.ComposerFormController = Ember.Controller.extend
   init:  ->
     type = @type
 
-    model = Ember.get("App.#{type}").create()
-    controller = Ember.get("App.#{type}FormController").create(model: model)
+    controller = Ember.get("App.#{type}FormController").create
+      model: @get('model')
+      sentence: @get('sentence')
+
     @set('nestedController', controller)
     formView = Ember.get("App.#{type}FormView")
     mdView = Ember.get("App.#{type}MdView")

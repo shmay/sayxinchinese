@@ -3,5 +3,6 @@
 FactoryGirl.define do
   factory :answer do
     answer 'some answer'
+    explanation 'yup'
   end
 end
