@@ -11,4 +11,3 @@ App.AnswerFormController = Ember.Controller.extend
       @get('sentence').get('answers').pushObject m
 
     m.save()
-
