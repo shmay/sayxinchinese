@@ -1,2 +1,3 @@
-App.SentenceAnswerController = Ember.ArrayController.extend
-  itemController: 'answer'
+App.SentenceAnswerController = Ember.ObjectController.extend
+  favorite: ->
+    @set('favorite', true)
