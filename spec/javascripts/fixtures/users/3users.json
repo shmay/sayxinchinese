@@ -1,0 +1,29 @@
+[
+    {
+        "id": 78,
+        "email": "shoobie8871@gmail.com",
+        "name": "shoobie",
+        "admin": null,
+        "company": "",
+        "login": "2012-08-01T23:28:54Z",
+        "created_at": "2012-06-26T21:52:43Z"
+    },
+    {
+        "id": 12,
+        "email": "kmurph73@gmail.com",
+        "name": "real kyle m2",
+        "admin": true,
+        "company": "kass",
+        "login": "2012-07-31T23:14:00Z",
+        "created_at": "2011-11-14T19:42:22Z"
+    },
+    {
+        "id": 76,
+        "email": "ydy@lkj.net",
+        "name": "asdf",
+        "admin": null,
+        "company": "",
+        "login": "2012-08-01T23:28:54Z",
+        "created_at": "2012-06-28T22:52:43Z"
+    }
+]

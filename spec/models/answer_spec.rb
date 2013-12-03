@@ -28,5 +28,29 @@ describe Answer do
 
       # user.answers.count.should eq(1)
     end
+
+    it "should have zero vote_count" do
+      sentence = FactoryGirl.create(:sentence)
+      answer = FactoryGirl.create(:answer, sentence_id:sentence.id, user_id:user.id)
+
+      answers = Answer.with_vote_data(sentence.id, user)
+
+      nocount = answers.find {|a| a.id == answer.id}
+
+      nocount.other_votes_count.should == 0
+    end
+
+    it "should have negative vote_count" do
+      sentence = FactoryGirl.create(:sentence)
+      answer = FactoryGirl.create(:answer, sentence_id:sentence.id, user_id:user.id)
+
+      vote = FactoryGirl.create_list(:other_downboat, 2, answer_id:answer.id)
+
+      answers = Answer.with_vote_data(sentence.id, user)
+
+      negcount = answers.find {|a| a.id == answer.id}
+
+      negcount.other_votes_count.should == -2
+    end
   end
 end

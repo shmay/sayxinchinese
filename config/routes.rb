@@ -3,7 +3,12 @@ Next::Application.routes.draw do
 
   resources :comments
 
-  resources :answers
+  resources :answers do
+    member do
+      post 'toggle_starring'
+      post 'vote'
+    end
+  end
 
   resources :sentences
 

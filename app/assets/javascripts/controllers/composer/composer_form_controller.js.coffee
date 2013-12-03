@@ -1,15 +1,15 @@
 Ember = @Ember
 
-App.ComposerFormController = Ember.Controller.extend
-  init:  ->
-    type = @type
-    controller = @nestedController
+App.ComposerFormController = Ember.ObjectController.extend
+  #init:  ->
+  #  type = @type
+  #  controller = @nestedController
 
-    formView = Ember.get("App.#{type}FormView")
-    mdView = Ember.get("App.#{type}MdView")
+  #  formView = Ember.get("App.#{type}FormView")
+  #  mdView = Ember.get("App.#{type}MdView")
 
-    @set('formView', formView.create(controller:controller))
-    @set('mdView', mdView.create(controller:controller))
+  #  @set('formView', formView.create(controller:controller))
+  #  @set('mdView', mdView.create(controller:controller))
 
   layout: 'composer_form'
 

@@ -16,7 +16,6 @@
 //= require showdown
 //= require bootstrap
 //= require ember
-//= require ember-model
 // require ember-data-beta
 //= require_self
 //= require next

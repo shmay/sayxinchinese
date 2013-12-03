@@ -25,6 +25,7 @@ FactoryGirl.define do
 
     factory :upboat_for_answer, traits: [:upboat, :answer]
     factory :downboat_for_answer, traits: [:downboat, :answer]
+    factory :other_downboat, traits: [:downboat, :other_user]
     factory :rand_user_boat, traits: [:upboat, :other_user]
   end
 end

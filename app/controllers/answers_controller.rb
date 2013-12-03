@@ -16,6 +16,56 @@ class AnswersController < ApplicationController
     end
   end
 
+  def toggle_starring
+    starring = Starring.where(answer_id: params[:id], user_id: current_user.id).first
+    respond_to do |format|
+      if starring
+        if starring.destroy
+          format.json { render json: {starred: false} }
+        else
+          format.json { render json: starring.errors, status: :unprocessable_entity }
+        end
+      else
+        starring = Starring.new(answer_id: params[:id], user_id: current_user.id)
+        if starring.save
+          format.json {render json: {starred: true} }
+        else
+          format.json { render json: starring.errors, status: :unprocessable_entity }
+        end
+      end
+    end
+  end
+
+  def vote
+    new_dir = params[:newDir].to_i
+    needvote = new_dir != 0
+
+    vote = Vote.where(answer_id: params[:id], user_id: current_user.id).first
+
+    if needvote
+      if vote
+        vote.direction = new_dir
+      else
+        vote = Vote.new(answer_id: params[:id], user_id: current_user.id, direction: new_dir)
+      end
+    elsif vote
+      vote.destroy
+    end
+
+    respond_to do |format|
+      if !needvote
+        format.json { render json: {dir: 0} }
+      else
+        if vote.save
+          format.json { render json: {dir: vote.direction} }
+        else
+          format.json { render json: 'fail', status: :unprocessable_entity }
+        end
+      end
+    end
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_answer

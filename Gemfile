@@ -26,6 +26,7 @@ group :development, :test do
   #gem 'zeus-parallel_tests'
   gem 'rspec-rails', '~> 2.0'
   gem "factory_girl_rails"
+  gem "jasminerice", :git => 'https://github.com/bradphelan/jasminerice.git'
 end
 
 # Use Uglifier as compressor for JavaScript assets

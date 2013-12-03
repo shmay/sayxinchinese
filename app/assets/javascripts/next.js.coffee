@@ -17,6 +17,10 @@ Handlebars.helper 'dynamicView', (options) ->
   path = options.data.view.nestedView
   Handlebars.helpers.view.call(this, path, options)
 
+Handlebars.helper 'dynamicRender', (name, model, options) ->
+  debugger
+  Handlebars.helpers.render.call(this, name, model, options)
+
 Handlebars.registerBoundHelper "markdown", (input) ->
   if input
     new Handlebars.SafeString(showdown.makeHtml(input))

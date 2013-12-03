@@ -1,12 +1,6 @@
 App.SentenceController = Ember.ObjectController.extend
   needs: ["composer"]
 
-  answersLength: (->
-    length = @get("answers").length
-    term = if length == 1 then 'answer' else 'answers'
-    "#{length} #{term}"
-  ).property('answers')
-
   actions:
     addAnswer: ->
       controller = @get("controllers.composer")

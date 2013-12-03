@@ -1,4 +1,5 @@
 # for more details see: http://emberjs.com/guides/views/
-
 App.AnswerView = Ember.View.extend
-  templateName: 'sentence_answer'
+  templateName: 'answers/answer'
+  didInsertElement: ->
+    console.log ''
