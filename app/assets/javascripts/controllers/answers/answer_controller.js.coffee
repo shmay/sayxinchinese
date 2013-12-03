@@ -46,8 +46,6 @@ App.AnswerController = Ember.ObjectController.extend
       title = "<h5>Edit answer <i>#{m.get('answer')}</i></h5>"
 
       controller.toggle(
-        title: title
         model:m
-        formView: 'answer_form'
-        mdView: 'answer_md'
-      ))
+        kind: 'answer'
+      )

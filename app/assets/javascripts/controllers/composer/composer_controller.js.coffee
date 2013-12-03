@@ -3,11 +3,8 @@ App.ComposerController = Ember.ObjectController.extend
     @toggle @get('view').get('nestedView')
 
   toggle: (props) ->
-    view = @get('view')
-
-    view = @createView(nestedView) if not view
-
-    @setProperties props
+    @set('model', props.model)
+    view = @createView()
 
     if view.state == 'inDOM'
       if @get('composeState') == 'closed'
@@ -16,6 +13,13 @@ App.ComposerController = Ember.ObjectController.extend
         @close()
     else
       view.appendTo('body')
+
+  createView: (nestedView) ->
+    view = App.ComposerView.create
+      message: "New Sentence"
+      controller: @
+
+    view
 
   open: (view,nestedView) ->
     el = view.$()

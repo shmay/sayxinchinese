@@ -1,6 +1,6 @@
 Ember = @Ember
 
-App.ComposerFormController = Ember.ObjectController.extend
+App.ComposerFormController = Ember.ObjectController.extend()
   #init:  ->
   #  type = @type
   #  controller = @nestedController
@@ -11,30 +11,30 @@ App.ComposerFormController = Ember.ObjectController.extend
   #  @set('formView', formView.create(controller:controller))
   #  @set('mdView', mdView.create(controller:controller))
 
-  layout: 'composer_form'
+  #layout: 'composer_form'
 
-  isMobile: false
-  preview: false
-  currState: 'form'
+  #isMobile: false
+  #preview: false
+  #currState: 'form'
 
-  notMobileOrPreview: (->
-    !@get('isMobile') or @get('preview')
-  ).property('preview', 'isMobile')
+  #notMobileOrPreview: (->
+  #  !@get('isMobile') or @get('preview')
+  #).property('preview', 'isMobile')
 
-  isPreviewAndMobile: ( ->
-    @get('preview') and @get('isMobile')
-  ).property('preview', 'isMobile')
+  #isPreviewAndMobile: ( ->
+  #  @get('preview') and @get('isMobile')
+  #).property('preview', 'isMobile')
 
-  isSubmitting: ( ->
-    @get('currState') == 'submitting'
-  ).property('currState')
+  #isSubmitting: ( ->
+  #  @get('currState') == 'submitting'
+  #).property('currState')
 
-  showPreview: -> @set('preview', true)
-  showForm: -> @set('preview', false)
+  #showPreview: -> @set('preview', true)
+  #showForm: -> @set('preview', false)
 
-  submit: ->
-    @set('currState', 'submitting')
-    @get('nestedController').submit()
+  #submit: ->
+  #  @set('currState', 'submitting')
+  #  @get('nestedController').submit()
 
-  reset: ->
-    @get('nestedController').reset()
+  #reset: ->
+  #  @get('nestedController').reset()

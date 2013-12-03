@@ -18,7 +18,6 @@ Handlebars.helper 'dynamicView', (options) ->
   Handlebars.helpers.view.call(this, path, options)
 
 Handlebars.helper 'dynamicRender', (name, model, options) ->
-  debugger
   Handlebars.helpers.render.call(this, name, model, options)
 
 Handlebars.registerBoundHelper "markdown", (input) ->
