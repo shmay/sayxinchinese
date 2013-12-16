@@ -11,8 +11,8 @@ App.SentenceController = Ember.ObjectController.extend
       controller.toggle(App.ComposerFormView.create(
         controller: App.ComposerFormController.create(
           title: title
-          nestedController:App.AnswerFormController(model:answer)
-          type:'Answer'
+          nestedController:App.AnswerFormController.create(model:answer)
+          type: 'Answer'
         )
       ))
 

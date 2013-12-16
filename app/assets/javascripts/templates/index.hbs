@@ -10,9 +10,9 @@
     </div>
     <div class="collapse navbar-collapse">
       {{partial 'nav'}}
-      {{#if App.currentUser}}
+      {{#if currentUser}}
         <ul class="nav navbar-nav navbar-right">
-          <li>{{#link-to 'user' App.currentUser.id}}Profile{{/link-to}}</a></li>
+          <li>{{#linkTo 'user' currentUser.id}}Profile{{/linkTo}}</a></li>
           <li><a data-method="delete" href="/users/sign_out" rel="nofollow">Sign out</a></li>
         </ul>
       {{else}}

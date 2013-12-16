@@ -7,6 +7,9 @@ App.Router.map (match) ->
     @resource('user', {path: '/profiles/:id'})
     @resource('users')
 
+App.IndexRoute = Ember.Route.extend
+  setupController: (controller) ->
+    controller.set('currentUser', App.currentUser)
 App.SentenceRoute = Ember.Route.extend
   model: (params) -> App.Sentence.find(params.id)
   setupController: (controller,model) ->

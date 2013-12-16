@@ -1,4 +1,4 @@
-App.AnswerFormController = Ember.Controller.extend
+App.AnswerFormController = Ember.ObjectController.extend
   reset: ->
     @set('explanation', '')
     @set('answer', '')
