@@ -11,15 +11,15 @@ App.ComposerView = Em.View.extend
   movePanels: (sizePx) -> $('#reply-control').css('bottom', sizePx)
 
   checkWindowSize: ->
-    nestedController = @get('nestedView').get('controller')
+    #nestedController = @get('nestedView').get('controller')
 
-    isMobile = nestedController.get('isMobile')
-    if window.innerWidth <= 1200
-      if not isMobile
-        nestedController.set('isMobile', true)
-    else
-      if isMobile
-        nestedController.set('isMobile', false)
+    #isMobile = nestedController.get('isMobile')
+    #if window.innerWidth <= 1200
+    #  if not isMobile
+    #    nestedController.set('isMobile', true)
+    #else
+    #  if isMobile
+    #    nestedController.set('isMobile', false)
 
   willInsertElement: ->
     @checkWindowSize()

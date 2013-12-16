@@ -18,7 +18,7 @@ Next::Application.routes.draw do
 
   get 'users' => 'users#index', as: :users
   get 'profiles/:id' => 'users#show', as: :show_user
-  put 'users/:id' => 'users#update', as: :update_user
+  patch 'users/:id' => 'users#update', as: :update_user
   post 'votes' => 'votes#create', as: :vote
 
   post '/answers/:id/star' => 'answers#star', as: :star_answer

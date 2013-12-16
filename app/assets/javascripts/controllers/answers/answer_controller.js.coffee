@@ -3,8 +3,6 @@ App.AnswerController = Ember.ObjectController.extend
 
   starAnswer: ->
     m = @get('model')
-    oldStarred = m.get('starred')
-    m.set('starred', !oldStarred)
 
     m.toggleStarred
       error: (resp) ->

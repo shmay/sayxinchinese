@@ -11,5 +11,5 @@
   :javascript
     (function() {
       var App = this.App;
-      App.currentUser = new App.User(#{current_user.to_json});
+      App.currentUser = App.User.create(#{current_user.to_json});
     }).call(this);

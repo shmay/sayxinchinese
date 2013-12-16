@@ -20,7 +20,7 @@
   <div {{bindAttr class="isPreviewAndMobile:hide:shown"}}>
     <div id='compose-write' {{bindAttr class="isMobile:composer-mobile:col-md-7"}}>
       <form role="form">
-        {{dynamicRender formView 'model'}}
+        {{dynView formView}}
         <button class="btn btn-default" {{bindAttr disabled="isSubmitting"}} {{action submit}}>
           {{#if isSubmitting}}
             Submitting...
@@ -36,7 +36,7 @@
 
   <div {{bindAttr class="notMobileOrPreview:prev:hide"}}>
     <div id='compose-preview' {{bindAttr class='isMobile:col-md-12:col-md-5'}}>
-      {{dynamicRender mdView 'model'}}
+      {{dynView mdView}}
     </div>
   </div>
 </div>

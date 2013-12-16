@@ -22,7 +22,8 @@ App.Answer = Ember.Object.extend
         alert('error')
 
   toggleStarred: (options) ->
-    @set('user_votes', dir)
+    oldStarred = @get('starred')
+    @set('starred', !oldStarred)
 
     $.ajax
       url: "/answers/#{@get('id')}/toggle_starring"

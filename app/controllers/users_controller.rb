@@ -16,17 +16,21 @@ class UsersController < ApplicationController
     #@sentences_json = render_to_string('sentences/index.json')
 
     @user = User.find params[:id]
-    render json: @user, root: false
   end
+
 
   def update
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to profile_path(@user), notice: 'User was successfully updated.' }
-        format.json { render json: @user }
+        format.json { render 'show' }
       else
+        json = {
+          errors: @user.errors.full_messages,
+          data: render_to_string('show')
+        }
         format.html { render action: 'edit' }
-        format.json { render json: @user.errors.full_messages, status: :unprocessable_entity }
+        format.json { render json: json, status: :unprocessable_entity }
       end
     end
   end

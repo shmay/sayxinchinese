@@ -1,1 +1,20 @@
-<h1>{{name}}</h1>
+{{#if model.isLoaded }}
+  {{#if model.hasErred}}
+    {{#view App.NoticeView modelBinding="model"}}
+      <div class='alert alert-danger'>An error occurred while saving...</div>
+    {{/view}}
+  {{/if}}
+
+  <h2>
+    {{#if editingName}}
+      {{view App.FocusedField valueBinding="name"}}
+    {{else}}
+      {{name}}
+    {{/if}}
+    <span {{action editName}}>
+      <i class="fa fa-pencil pointer tip" data-placement="right" title="" data-original-title="edit your name"></i>
+    </span>
+  </h2>
+{{else}}
+  <h3>Loading user...</h3>
+{{/if}}
